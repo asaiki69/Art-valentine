@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Valentine 💖</title>
+<title>Valentine 💘</title>
 <style>
 body {
-  background: #ffd6e8;
+  background: linear-gradient(135deg, #ffd6e8, #ffeef5);
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
@@ -15,35 +15,47 @@ body {
 
 .card {
   background: white;
-  padding: 30px;
+  padding: 25px;
   border-radius: 20px;
   text-align: center;
-  width: 320px;
+  width: 360px;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 h2 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-button {
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fake {
   border: none;
-  padding: 12px 20px;
-  border-radius: 30px;
-  margin: 5px;
-  font-size: 16px;
-}
-
-#yes {
-  background: #ff2f7d;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.no {
-  background: #eee;
-  color: #999;
+  padding: 8px 14px;
+  margin: 4px;
+  border-radius: 20px;
+  font-size: 14px;
+  opacity: 0.8;
   cursor: not-allowed;
+}
+
+.yes { background: #ff4d88; color: white; }
+.no { background: #ddd; color: #666; }
+
+#deal {
+  margin-top: 20px;
+  background: #00c853;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 26px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
 }
 
 #dance {
@@ -51,35 +63,58 @@ button {
 }
 
 img {
-  width: 200px;
-  margin-top: 20px;
+  width: 220px;
+  margin-top: 15px;
 }
 </style>
 </head>
 
 <body>
+
 <div class="card" id="question">
   <h2>Aarti, will you be my Valentine? 💘</h2>
 
-  <button id="yes" onclick="showLove()">YES 💖</button><br>
+  <div class="buttons">
+    <!-- 50+ Fake YES & NO -->
+    <!-- YES -->
+    <button class="fake yes">YES</button>
+    <button class="fake yes">YES</button>
+    <button class="fake yes">YES</button>
+    <button class="fake yes">YES</button>
+    <button class="fake yes">YES</button>
 
-  <button class="no">NO</button>
-  <button class="no">NO</button>
-  <button class="no">NO</button>
-  <button class="no">NO</button>
+    <!-- NO -->
+    <button class="fake no">NO</button>
+    <button class="fake no">NO</button>
+    <button class="fake no">NO</button>
+    <button class="fake no">NO</button>
+    <button class="fake no">NO</button>
+
+    <!-- repeat -->
+    <script>
+      for(let i=0;i<45;i++){
+        document.write(
+          `<button class="fake ${i%2==0?'yes':'no'}">${i%2==0?'YES':'NO'}</button>`
+        );
+      }
+    </script>
+  </div>
+
+  <button id="deal" onclick="celebrate()">DEAL 🤝</button>
 </div>
 
 <div class="card" id="dance">
-  <h2>Yayyy!!! 💃🕺</h2>
-  <p>You just made my day 💕</p>
+  <h2>YAYYY!!! 🥳💃</h2>
+  <p>Best deal ever 💖</p>
   <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
 </div>
 
 <script>
-function showLove() {
-  document.getElementById("question").style.display = "none";
-  document.getElementById("dance").style.display = "block";
+function celebrate(){
+  document.getElementById("question").style.display="none";
+  document.getElementById("dance").style.display="block";
 }
 </script>
+
 </body>
 </html>
